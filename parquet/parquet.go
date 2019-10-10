@@ -356,7 +356,6 @@ const (
   CompressionCodec_LZO CompressionCodec = 3
   CompressionCodec_BROTLI CompressionCodec = 4
   CompressionCodec_LZ4 CompressionCodec = 5
-  CompressionCodec_ZSTD CompressionCodec = 6
 )
 
 func (p CompressionCodec) String() string {
@@ -367,7 +366,6 @@ func (p CompressionCodec) String() string {
   case CompressionCodec_LZO: return "LZO"
   case CompressionCodec_BROTLI: return "BROTLI"
   case CompressionCodec_LZ4: return "LZ4"
-  case CompressionCodec_ZSTD: return "ZSTD"
   }
   return "<UNSET>"
 }
@@ -380,7 +378,6 @@ func CompressionCodecFromString(s string) (CompressionCodec, error) {
   case "LZO": return CompressionCodec_LZO, nil 
   case "BROTLI": return CompressionCodec_BROTLI, nil 
   case "LZ4": return CompressionCodec_LZ4, nil 
-  case "ZSTD": return CompressionCodec_ZSTD, nil 
   }
   return CompressionCodec(0), fmt.Errorf("not a valid CompressionCodec string")
 }
