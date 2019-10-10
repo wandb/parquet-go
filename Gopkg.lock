@@ -11,41 +11,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:4a0c6bb4805508a6287675fac876be2ac1182539ca8a32468d8128882e9d5009"
+  digest = "1:700b1e527116332847452edf9febc0c252c026785a8c3cfa3f68a8eeffb09ee8"
   name = "github.com/golang/snappy"
   packages = ["."]
   pruneopts = "UT"
-  revision = "2e65f85255dbc3072edf28d6b5b8efc472979f5a"
-
-[[projects]]
-  digest = "1:32ff4a621bbae74c7639a9d294a4857dbd9546e15da9f3102c4f50deca8e8a30"
-  name = "github.com/wandb/parquet-go"
-  packages = [
-    "common",
-    "compress",
-    "encoding",
-    "layout",
-    "marshal",
-    "parquet",
-    "reader",
-    "schema",
-    "source",
-    "tool/parquet-tools/schematool",
-    "tool/parquet-tools/sizetool",
-    "types",
-    "writer",
-  ]
-  pruneopts = "UT"
-  revision = "06aec27b2a98c70158bb1ff994697e7440ba09e9"
-  version = "v1.4.0"
-
-[[projects]]
-  branch = "master"
-  digest = "1:5a652617d8b57d72ac3582c45a2d0c2530c35962e4b200f8d27dd2979b98d1fc"
-  name = "github.com/wandb/parquet-go-source"
-  packages = ["local"]
-  pruneopts = "UT"
-  revision = "2b72cbee77d5b8902db83e2d9b2e9f35ae751844"
+  revision = "ff6b7dc882cf4cfba7ee0b9f7dcc1ac096c554aa"
 
 [solve-meta]
   analyzer-name = "dep"
@@ -53,20 +23,6 @@
   input-imports = [
     "github.com/apache/thrift/lib/go/thrift",
     "github.com/golang/snappy",
-    "github.com/wandb/parquet-go-source/local",
-    "github.com/wandb/parquet-go/common",
-    "github.com/wandb/parquet-go/compress",
-    "github.com/wandb/parquet-go/encoding",
-    "github.com/wandb/parquet-go/layout",
-    "github.com/wandb/parquet-go/marshal",
-    "github.com/wandb/parquet-go/parquet",
-    "github.com/wandb/parquet-go/reader",
-    "github.com/wandb/parquet-go/schema",
-    "github.com/wandb/parquet-go/source",
-    "github.com/wandb/parquet-go/tool/parquet-tools/schematool",
-    "github.com/wandb/parquet-go/tool/parquet-tools/sizetool",
-    "github.com/wandb/parquet-go/types",
-    "github.com/wandb/parquet-go/writer",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
