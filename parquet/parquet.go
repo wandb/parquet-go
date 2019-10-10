@@ -4,13 +4,13 @@
 package parquet
 
 import (
-	"bytes"
-	"context"
-	"reflect"
-	"database/sql/driver"
-	"errors"
-	"fmt"
-	"github.com/apache/thrift/lib/go/thrift"
+  "bytes"
+  "context"
+  "database/sql/driver"
+  "errors"
+  "fmt"
+  "github.com/apache/thrift/lib/go/thrift"
+  "reflect"
 )
 
 // (needed to ensure safety because of naive import list construction.)

@@ -19,7 +19,7 @@
 
 [[projects]]
   digest = "1:32ff4a621bbae74c7639a9d294a4857dbd9546e15da9f3102c4f50deca8e8a30"
-  name = "github.com/xitongsys/parquet-go"
+  name = "github.com/wandb/parquet-go"
   packages = [
     "common",
     "compress",
@@ -42,7 +42,7 @@
 [[projects]]
   branch = "master"
   digest = "1:5a652617d8b57d72ac3582c45a2d0c2530c35962e4b200f8d27dd2979b98d1fc"
-  name = "github.com/xitongsys/parquet-go-source"
+  name = "github.com/wandb/parquet-go-source"
   packages = ["local"]
   pruneopts = "UT"
   revision = "2b72cbee77d5b8902db83e2d9b2e9f35ae751844"
@@ -53,20 +53,20 @@
   input-imports = [
     "github.com/apache/thrift/lib/go/thrift",
     "github.com/golang/snappy",
-    "github.com/xitongsys/parquet-go-source/local",
-    "github.com/xitongsys/parquet-go/common",
-    "github.com/xitongsys/parquet-go/compress",
-    "github.com/xitongsys/parquet-go/encoding",
-    "github.com/xitongsys/parquet-go/layout",
-    "github.com/xitongsys/parquet-go/marshal",
-    "github.com/xitongsys/parquet-go/parquet",
-    "github.com/xitongsys/parquet-go/reader",
-    "github.com/xitongsys/parquet-go/schema",
-    "github.com/xitongsys/parquet-go/source",
-    "github.com/xitongsys/parquet-go/tool/parquet-tools/schematool",
-    "github.com/xitongsys/parquet-go/tool/parquet-tools/sizetool",
-    "github.com/xitongsys/parquet-go/types",
-    "github.com/xitongsys/parquet-go/writer",
+    "github.com/wandb/parquet-go-source/local",
+    "github.com/wandb/parquet-go/common",
+    "github.com/wandb/parquet-go/compress",
+    "github.com/wandb/parquet-go/encoding",
+    "github.com/wandb/parquet-go/layout",
+    "github.com/wandb/parquet-go/marshal",
+    "github.com/wandb/parquet-go/parquet",
+    "github.com/wandb/parquet-go/reader",
+    "github.com/wandb/parquet-go/schema",
+    "github.com/wandb/parquet-go/source",
+    "github.com/wandb/parquet-go/tool/parquet-tools/schematool",
+    "github.com/wandb/parquet-go/tool/parquet-tools/sizetool",
+    "github.com/wandb/parquet-go/types",
+    "github.com/wandb/parquet-go/writer",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

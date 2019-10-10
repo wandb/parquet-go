@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"reflect"
 
-	"github.com/xitongsys/parquet-go/common"
-	"github.com/xitongsys/parquet-go/parquet"
+	"github.com/wandb/parquet-go/common"
+	"github.com/wandb/parquet-go/parquet"
 )
 
 func ToInt64(nums []interface{}) []int64 { //convert bool/int values to int64 values

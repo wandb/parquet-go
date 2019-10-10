@@ -1,6 +1,6 @@
 # parquet-go v1.4.2
-[![Travis Status for xitongsys/parquet-go](https://travis-ci.org/xitongsys/parquet-go.svg?branch=master&label=linux+build)](https://travis-ci.org/xitongsys/parquet-go)
-[![godoc for xitongsys/parquet-go](https://godoc.org/github.com/nathany/looper?status.svg)](http://godoc.org/github.com/xitongsys/parquet-go)
+[![Travis Status for wandb/parquet-go](https://travis-ci.org/wandb/parquet-go.svg?branch=master&label=linux+build)](https://travis-ci.org/wandb/parquet-go)
+[![godoc for wandb/parquet-go](https://godoc.org/github.com/nathany/looper?status.svg)](http://godoc.org/github.com/wandb/parquet-go)
 
 
 parquet-go is a pure-go implementation of reading and writing the parquet format file. 
@@ -11,13 +11,13 @@ parquet-go is a pure-go implementation of reading and writing the parquet format
 ## Install
 Add the parquet-go library to your $GOPATH/src and install dependencies:
 ```sh
-go get github.com/xitongsys/parquet-go
-cd $GOPATH/src/github.com/xitongsys/parquet-go/
+go get github.com/wandb/parquet-go
+cd $GOPATH/src/github.com/wandb/parquet-go/
 dep ensure
 ```
 Look at examples in `example/`. 
 ```sh
-cd $GOPATH/src/github.com/xitongsys/parquet-go/example
+cd $GOPATH/src/github.com/wandb/parquet-go/example
 go run local_flat.go
 ```
 
@@ -151,26 +151,26 @@ type ParquetFile interface {
 	Create(name string) (ParquetFile, error)
 }
 ```
-Using this interface, parquet-go can read/write parquet file on different platforms. All the file sources are at [parquet-go-source](https://github.com/xitongsys/parquet-go-source). Now it supports(local/hdfs/s3/gcs/memory).
+Using this interface, parquet-go can read/write parquet file on different platforms. All the file sources are at [parquet-go-source](https://github.com/wandb/parquet-go-source). Now it supports(local/hdfs/s3/gcs/memory).
 
 ## Writer
 Three Writers are supported: ParquetWriter, JSONWriter, CSVWriter.
 * ParquetWriter is used to write predefined Golang structs.
-[Example of ParquetWriter](https://github.com/xitongsys/parquet-go/blob/master/example/local_flat.go)
+[Example of ParquetWriter](https://github.com/wandb/parquet-go/blob/master/example/local_flat.go)
 
 * JSONWriter is used to write JSON strings
-[Example of JSONWriter](https://github.com/xitongsys/parquet-go/blob/master/example/json_write.go)
+[Example of JSONWriter](https://github.com/wandb/parquet-go/blob/master/example/json_write.go)
 
 * CSVWriter is used to write data format similar with CSV(not nested)
-[Example of CSVWriter](https://github.com/xitongsys/parquet-go/blob/master/example/csv_write.go)
+[Example of CSVWriter](https://github.com/wandb/parquet-go/blob/master/example/csv_write.go)
 
 ## Reader
 Two Readers are supported: ParquetReader, ColumnReader
 * ParquetReader is used to read predefined Golang structs
-[Example of ParquetReader](https://github.com/xitongsys/parquet-go/blob/master/example/local_nested.go)
+[Example of ParquetReader](https://github.com/wandb/parquet-go/blob/master/example/local_nested.go)
 
 * ColumnReader is used to read raw column data. The read function return 3 slices([value], [RepetitionLevel], [DefinitionLevel]) of the records.
-[Example of ColumnReader](https://github.com/xitongsys/parquet-go/blob/master/example/column_read.go)
+[Example of ColumnReader](https://github.com/wandb/parquet-go/blob/master/example/column_read.go)
 
 ### Tips
 * If the parquet file is very big (even the size of parquet file is small, the uncompressed size may be very large), please don't read all rows at one time, which may induce the OOM. You can read a small portion of the data at a time like a stream-oriented file.
@@ -190,7 +190,7 @@ type Student struct {
 	Day    int32   `parquet:"name=day, type=DATE"`
 }
 ```
-[Example of tags](https://github.com/xitongsys/parquet-go/blob/master/example/local_flat.go)
+[Example of tags](https://github.com/wandb/parquet-go/blob/master/example/local_flat.go)
 
 
 ### JSON
@@ -258,7 +258,7 @@ var jsonSchema string = `
 }
 `
 ```
-[Example of JSON schema](https://github.com/xitongsys/parquet-go/blob/master/example/json_schema.go)
+[Example of JSON schema](https://github.com/wandb/parquet-go/blob/master/example/json_schema.go)
 
 
 ### CSV metadata
@@ -271,7 +271,7 @@ md := []string{
 	"name=Sex, type=BOOLEAN",
 }
 ```
-[Example of CSV metadata](https://github.com/xitongsys/parquet-go/blob/master/example/csv_write.go)
+[Example of CSV metadata](https://github.com/wandb/parquet-go/blob/master/example/csv_write.go)
 
 
 ## Parallel
@@ -286,22 +286,22 @@ func NewCSVWriter(md []string, pfile ParquetFile.ParquetFile, np int64) (*CSVWri
 ## Examples
 |Example file|Descriptions|
 |-|-|
-|[local_flat.go](https://github.com/xitongsys/parquet-go/blob/master/example/local_flat.go)|write/read parquet file with no nested struct|
-|[local_nested.go](https://github.com/xitongsys/parquet-go/blob/master/example/local_nested.go)|write/read parquet file with nested struct|
-|[read_partial.go](https://github.com/xitongsys/parquet-go/blob/master/example/read_partial.go)|read partial fields from a parquet file|
-|[read_partial2.go](https://github.com/xitongsys/parquet-go/blob/master/example/read_partial2.go)|read sub-struct from a parquet file|
-|[read_without_schema_predefined.go](https://github.com/xitongsys/parquet-go/blob/master/example/read_without_schema_predefined.go)|read a parquet file and no struct/schema predefined needed|
-|[read_partial_without_schema_predefined.go](https://github.com/xitongsys/parquet-go/blob/master/example/read_partial_without_schema_predefined.go)|read sub-struct from a parquet file and no struct/schema predefined needed|
-|[json_schema.go](https://github.com/xitongsys/parquet-go/blob/master/example/json_schema.go)|define schema using json string|
-|[json_write.go](https://github.com/xitongsys/parquet-go/blob/master/example/json_write.go)|convert json to parquet|
-|[convert_to_json.go](https://github.com/xitongsys/parquet-go/blob/master/example/convert_to_json.go)|convert parquet to json|
-|[csv_write.go](https://github.com/xitongsys/parquet-go/blob/master/example/csv_write.go)|special csv writer|
-|[column_read.go](https://github.com/xitongsys/parquet-go/blob/master/example/column_read.go)|read raw column data and return value,repetitionLevel,definitionLevel|
-|[type.go](https://github.com/xitongsys/parquet-go/blob/master/example/type.go)|example for schema of types|
+|[local_flat.go](https://github.com/wandb/parquet-go/blob/master/example/local_flat.go)|write/read parquet file with no nested struct|
+|[local_nested.go](https://github.com/wandb/parquet-go/blob/master/example/local_nested.go)|write/read parquet file with nested struct|
+|[read_partial.go](https://github.com/wandb/parquet-go/blob/master/example/read_partial.go)|read partial fields from a parquet file|
+|[read_partial2.go](https://github.com/wandb/parquet-go/blob/master/example/read_partial2.go)|read sub-struct from a parquet file|
+|[read_without_schema_predefined.go](https://github.com/wandb/parquet-go/blob/master/example/read_without_schema_predefined.go)|read a parquet file and no struct/schema predefined needed|
+|[read_partial_without_schema_predefined.go](https://github.com/wandb/parquet-go/blob/master/example/read_partial_without_schema_predefined.go)|read sub-struct from a parquet file and no struct/schema predefined needed|
+|[json_schema.go](https://github.com/wandb/parquet-go/blob/master/example/json_schema.go)|define schema using json string|
+|[json_write.go](https://github.com/wandb/parquet-go/blob/master/example/json_write.go)|convert json to parquet|
+|[convert_to_json.go](https://github.com/wandb/parquet-go/blob/master/example/convert_to_json.go)|convert parquet to json|
+|[csv_write.go](https://github.com/wandb/parquet-go/blob/master/example/csv_write.go)|special csv writer|
+|[column_read.go](https://github.com/wandb/parquet-go/blob/master/example/column_read.go)|read raw column data and return value,repetitionLevel,definitionLevel|
+|[type.go](https://github.com/wandb/parquet-go/blob/master/example/type.go)|example for schema of types|
 
 
 ## Tool
-* [parquet-tools](https://github.com/xitongsys/parquet-go/blob/master/tool/parquet-tools): Command line tools that aid in the inspection of Parquet files
+* [parquet-tools](https://github.com/wandb/parquet-go/blob/master/tool/parquet-tools): Command line tools that aid in the inspection of Parquet files
 
 
 Please start to use it and give feedback or start it! Help is needed and anything is welcome.

@@ -1,12 +1,12 @@
 package writer
 
 import (
-	"github.com/xitongsys/parquet-go/layout"
-	"github.com/xitongsys/parquet-go/marshal"
-	"github.com/xitongsys/parquet-go/source"
-	"github.com/xitongsys/parquet-go/types"
-	"github.com/xitongsys/parquet-go/schema"
-	"github.com/xitongsys/parquet-go/parquet"
+	"github.com/wandb/parquet-go/layout"
+	"github.com/wandb/parquet-go/marshal"
+	"github.com/wandb/parquet-go/source"
+	"github.com/wandb/parquet-go/types"
+	"github.com/wandb/parquet-go/schema"
+	"github.com/wandb/parquet-go/parquet"
 )
 
 type CSVWriter struct {
