@@ -1,9 +1,4 @@
 [[constraint]]
-  name = "github.com/apache/thrift"
-  revision = "24918abba929282"
-  source = "github.com/apache/thrift"
-
-[[constraint]]
   branch = "master"
   name = "github.com/golang/snappy"
 
